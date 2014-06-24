@@ -1,15 +1,26 @@
-Arma3_Car_Audi
+Arma3_Audi
 ==============
 
 AudiS3	
 ==============
 Almost Working
 
+<<<<<<< HEAD
 
 
 AudiRS4	
 ==============
 NOT WORKING!
+=======
+AudiRS4	
+==============
+NOT WORKING!
+
+
+
+
+
+>>>>>>> origin/master
 
 Installation:
 ==============
