@@ -1,9 +1,18 @@
 Arma3_Car_Audi
 ==============
 
-Arma3 Audi Cars
+AudiS3	
+==============
+Almost Working
+
+
+
+AudiRS4	
+==============
+NOT WORKING!
 
 Installation:
+==============
 Extract into the ArmA 3 Directory, by default this is located in:
 32-Bit - C:/Program Files/Steam/Steamapps/Common/ArmA 3/
 64-Bit - C:/Program Files (x86)/Steam/Steamapps/Common/ArmA 3/
