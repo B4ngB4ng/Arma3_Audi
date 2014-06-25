@@ -29,13 +29,13 @@ class CfgVehicles
 		};	
 	};
 
-	class Audi_S5: Car_F
+	class AudiS5: Car_F
 	{
-		model 	= "\Arma3_Audi\AudiS5\Audi_S5";  /// simple path to model
+		model 	= "\Arma3_Audi\AudiS5\AudiS5";  /// simple path to model
 		picture	= "\A3\Weapons_F\Data\placeholder_co.paa"; /// just some icon in command bar
 		Icon	= "\A3\Weapons_F\Data\placeholder_co.paa"; /// icon in map	
 		
-		displayName = "Audi_S5"; /// displayed in Editor
+		displayName = "AudiS5"; /// displayed in Editor
 		
 		hiddenSelections[] = {"camo1"}; ///we want to allow changing of colours
 		
@@ -195,7 +195,7 @@ class CfgVehicles
 		aggregateReflectors[] = {{"LightCarHeadL01", "LightCarHeadL02"}, {"LightCarHeadR01", "LightCarHeadR02"}}; /// aggregating reflectors helps the engine a lot
 		/// it might be even good to aggregate all lights into one source as it is done for most of the cars
 	};
-	class Audi_S5_CIV: Audi_S5 /// some class that is going to be visible in editor
+	class AudiS5_CIV: AudiS5 /// some class that is going to be visible in editor
 	{	
 		scope	= 2; 			/// makes the car visible in editor
 		crew 	= "C_man_1"; 	/// we need someone to fit into the car
