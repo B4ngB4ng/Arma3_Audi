@@ -31,7 +31,7 @@ class CfgVehicles
 
 	class Audi_S5: Car_F
 	{
-		model 	= "\Audi_S5\Audi_S5";  /// simple path to model
+		model 	= "\Arma3_Audi\AudiS5\Audi_S5";  /// simple path to model
 		picture	= "\A3\Weapons_F\Data\placeholder_co.paa"; /// just some icon in command bar
 		Icon	= "\A3\Weapons_F\Data\placeholder_co.paa"; /// icon in map	
 		
