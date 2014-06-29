@@ -3,18 +3,18 @@
 		
 		thrustDelay            	= 0.2; 		/// initial delay to cause lesser slip when on 1st gear - thrust goes from zero to full in this time
 		brakeIdleSpeed         	= 1.78; 	/// under what speed (in m/s) does the brake apply for a vehicle without thrust
-		maxSpeed               	= 150; 		/// vehicle can go a bit over, but dramatically decreases thrust
-		fuelCapacity           	= 45; 
+		maxSpeed               	= 120; 		/// vehicle can go a bit over, but dramatically decreases thrust
+		fuelCapacity           	= 120; 
 		wheelCircumference     	= 2.277; 	/// diameter of 725
 
-		antiRollbarForceCoef	= 0.5; 	/// how strong is the anti-roll bar of vehicle preventing it to lose grip in turns (not any magical stuff, real ARB)
-		antiRollbarForceLimit	= 0.5; 	/// highest possible force of ARB
-		antiRollbarSpeedMin 	= 20; 	/// the roll bar force gets from zero to full in range of min and max speed
-		antiRollbarSpeedMax		= 80;  	/// this simulates losing grip at high speed turns
+		antiRollbarForceCoef	= 0; 	/// how strong is the anti-roll bar of vehicle preventing it to lose grip in turns (not any magical stuff, real ARB)
+		antiRollbarForceLimit	= 10; 	/// highest possible force of ARB
+		antiRollbarSpeedMin 	= 10; 	/// the roll bar force gets from zero to full in range of min and max speed
+		antiRollbarSpeedMax		= 60;  	/// this simulates losing grip at high speed turns
 
 		class complexGearbox
 		{	
-			GearboxRatios[]    = {"R1",-3.231,"N",0,"D1",2.462,"D2",1.870,"D3",1.241,"D4",0.970,"D5",0.711};
+			GearboxRatios[] = {"R1",-8.97,"N",0,"D1",9.48,"D2",6.58,"D3",4.68,"D4",3.48,"D5",2.62,"D6",1.89,"D7",1.35,"D8",1.0,"D9",0.75};
 			TransmissionRatios[] = {"High",4.111}; // Optional: defines transmission ratios (for example, High and Low range as commonly found in offroad vehicles)
 			gearBoxMode        = "auto"; //gearbox can be of type: full-auto (only requires 'W' or 'S'), auto (requires shift between drive and reverse), semi-auto, manual
 			moveOffGear        = 1; // defines what gear an automatic or semi-automatic gearbox will move off from stationary in. 1 by default.
@@ -46,7 +46,7 @@
 		// with open differential, front-wheel drive with limited slip, rear-wheel drive with open differential, rear-wheel drive with limited slip.
 		// <Type>: string; acceptable values: "all_open", "all_limited", "front_open", "front_limited", "rear_open", "rear_limited"
 		// <Default>: "all_limited"
-		differentialType = "front_limited";
+		differentialType = "all_limited";
 		
 		// <Description>: Ratio of engine power that goes to front wheels out of total power for 4-wheel drive differentials. 
 		// Choosing a value greater than 0.5 delivers more torque to the front wheels, while choosing a value less than 0.5 
@@ -83,7 +83,7 @@
 		// slip a little while changing gears while weaker values are better for comfortable seamless ride.
 		// <Type>: float
 		// <Default>: 10.0
-		clutchStrength = 15.0;
+		clutchStrength = 55.0;
 	
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Engine parameters
@@ -92,7 +92,7 @@
 		// <Description>: Power of the engine in kW.
 		// <Type>: float
 		// <Default>: (required)
-		enginePower = 100; 
+		enginePower = 512 ; 
 
 
 		// <Description>: This is the maximum rotational speed of the engine expressed in radians per second. It could be calculated from maximum 
@@ -105,7 +105,7 @@
 		// <Description>: This is the maximum torque that is ever available from the engine. This is expressed in Newton metres. 
 		// <Type>: float
 		// <Default>: value calculated from enginePower according to http://en.wikipedia.org/wiki/Horsepower#Relationship_with_torque
-		peakTorque = 350;
+		peakTorque = 2300;
 		
 		// <Description>: These three values describe internal damping of the engine. Bigger values mean greater damping. Clutch disengaged value 
 		// is used while shifting gears, engine interpolates between clutch engaged and full throttle values according to throttle input.
@@ -198,7 +198,7 @@
 				// Some tweaking is needed after the computation, but it is still better than nothing.
 				// <Type>: float
 				// <Default>: 0.5 * WheelMass * WheelRadius * WheelRadius
-				MOI = 3.3;
+				MOI = 20;
 
 				// <Description>:The damping rate describes the rate at which a freely spinning wheel loses rotational speed. 
 				// Values in range (0.25, 2) seem like sensible values. Experimentation is always a good idea, even outside this range.
@@ -212,7 +212,7 @@
 				// that these are often expressed by manufacturers as braking horsepower or in "pounds inches". The values required here are in "Newton metres".
 				// <Type>: float
 				// <Default>: 2500
-				maxBrakeTorque = 2000;
+				maxBrakeTorque = 8000;
 				
 				// <Description>: This is the same as the max brake torque except for the handbrake rather than the brake. Typically, for a 4-wheeled car, 
 				// the handbrake is stronger than the brake and is only applied to the rear wheels. A value of 4000 for the rear wheels is a good starting point, 
@@ -302,12 +302,12 @@
 			};
 			class LR : LF
 			{
-				boneName = "wheel_1_2_damper";
+				boneName = "wheel_2_1_damper";
 				steering = false;
-				center   = "wheel_1_2_axis";
-				boundary = "wheel_1_2_bound";
-				suspForceAppPointOffset = "wheel_1_2_axis";
-				tireForceAppPointOffset = "wheel_1_2_axis";
+				center   = "wheel_2_1_axis";
+				boundary = "wheel_2_1_bound";
+				suspForceAppPointOffset = "wheel_2_1_axis";
+				tireForceAppPointOffset = "wheel_2_1_axis";
 				maxHandBrakeTorque = 3000;
 				latStiffY = 180;	
 				sprungMass = 190.0;
@@ -316,11 +316,11 @@
 			};
 			class RF : LF
 			{
-				boneName = "wheel_2_1_damper";
-				center   = "wheel_2_1_axis";
-				boundary = "wheel_2_1_bound";
-				suspForceAppPointOffset = "wheel_2_1_axis";
-				tireForceAppPointOffset = "wheel_2_1_axis";
+				boneName = "wheel_1_2_damper";
+				center   = "wheel_1_2_axis";
+				boundary = "wheel_1_2_bound";
+				suspForceAppPointOffset = "wheel_1_2_axis";
+				tireForceAppPointOffset = "wheel_1_2_axis";
 				steering = true;
 				side = "right";
 			};
@@ -332,6 +332,34 @@
 				boundary = "wheel_2_2_bound";
 				suspForceAppPointOffset = "wheel_2_2_axis";
 				tireForceAppPointOffset = "wheel_2_2_axis";
+				maxHandBrakeTorque = 3000;
+				latStiffY = 180;				
+				sprungMass = 190.0;
+				springStrength = 4750;
+				springDamperRate = 1760;					
+			};
+			class RRtwo : RF
+			{
+				boneName = "wheel_3_2_damper";
+				steering = false;
+				center   = "wheel_3_2_axis";
+				boundary = "wheel_3_2_bound";
+				suspForceAppPointOffset = "wheel_3_2_axis";
+				tireForceAppPointOffset = "wheel_3_2_axis";
+				maxHandBrakeTorque = 3000;
+				latStiffY = 180;				
+				sprungMass = 190.0;
+				springStrength = 4750;
+				springDamperRate = 1760;					
+			};
+			class LRtwo : RF
+			{
+				boneName = "wheel_3_1_damper";
+				steering = false;
+				center   = "wheel_3_1_axis";
+				boundary = "wheel_3_1_bound";
+				suspForceAppPointOffset = "wheel_3_1_axis";
+				tireForceAppPointOffset = "wheel_3_1_axis";
 				maxHandBrakeTorque = 3000;
 				latStiffY = 180;				
 				sprungMass = 190.0;

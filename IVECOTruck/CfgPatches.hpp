@@ -1,8 +1,8 @@
 class CfgPatches
 {
-	class Test_car_F
+	class IVECOTruckCIV
 	{
-		units[]				= {"Test_Car_01"};
+		units[]				= {"IVECOTruck"};
 		weapons[]			= {};
 		requiredVersion		= 0.1;
 		requiredAddons[]	= {"A3_Soft_F"};
