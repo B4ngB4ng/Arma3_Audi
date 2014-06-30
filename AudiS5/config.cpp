@@ -49,6 +49,11 @@ class CfgVehicles
 		armor 			= 32; 	/// just some protection against missiles, collisions and explosions
 		cost			= 50000; /// how likely is the enemy going to target this vehicle
 		
+		
+		enginePower = 600; /// CL
+		//maxCompression = 0.8 //CL
+		dampingRate = 0.3 //CL
+		
 		transportMaxBackpacks 	= 3; /// just some backpacks fit the trunk by default
 		transportSoldier 		= 3; /// number of cargo except driver
 		
