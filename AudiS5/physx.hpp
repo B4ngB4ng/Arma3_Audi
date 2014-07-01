@@ -2,7 +2,7 @@
 		thrustDelay = 0.1;
 		brakeIdleSpeed = 1.78;
 		maxSpeed = 330;
-		fuelCapacity = 45;
+		fuelCapacity = 60;
 		wheelCircumference = 2.277;
 		antiRollbarForceCoef = 0;
 		antiRollbarForceLimit = 0;
@@ -28,10 +28,10 @@
 		frontBias = 1.5;
 		rearBias = 1.5;
 		centreBias = 2.5;
-		clutchStrength = 55.0;
-		enginePower = 350;
-		maxOmega = 700;
-		peakTorque = 800;
+		clutchStrength = 577.0;
+		enginePower = 245;
+		maxOmega = 720;
+		peakTorque = 440;
 		dampingRateFullThrottle = 0.03;
 		dampingRateZeroThrottleClutchEngaged = 0.35;
 		dampingRateZeroThrottleClutchDisengaged = 0.05;
@@ -67,9 +67,9 @@
 				tireForceAppPointOffset = "wheel_1_1_axis";
 				maxCompression = 0.1;
 				mMaxDroop = 0.05;
-				sprungMass = 272.5;
-				springStrength = 27250;
-				springDamperRate = 6725;
+				sprungMass = 333.5;
+				springStrength = 40250;
+				springDamperRate = 7725;
 				longitudinalStiffnessPerUnitGravity = 100000;
 				latStiffX = 25;
 				latStiffY = 18000;
