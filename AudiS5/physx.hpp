@@ -24,7 +24,7 @@
 		simulation = "carx";
 		dampersBumpCoef = 0.01;
 		differentialType = "all_limited";
-		frontRearSplit = 0.3;
+		frontRearSplit = 0.7;
 		frontBias = 1.5;
 		rearBias = 1.5;
 		centreBias = 2.5;
@@ -67,7 +67,7 @@
 				tireForceAppPointOffset = "wheel_1_1_axis";
 				maxCompression = 0.1;
 				mMaxDroop = 0.05;
-				sprungMass = 333.5;
+				sprungMass = 400.5;
 				springStrength = 40250;
 				springDamperRate = 7725;
 				longitudinalStiffnessPerUnitGravity = 100000;

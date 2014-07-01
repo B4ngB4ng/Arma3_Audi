@@ -8,9 +8,9 @@
 		wheelCircumference     	= 2.277; 	/// diameter of 725
 
 		antiRollbarForceCoef	= 0; 	/// how strong is the anti-roll bar of vehicle preventing it to lose grip in turns (not any magical stuff, real ARB)
-		antiRollbarForceLimit	= 10; 	/// highest possible force of ARB
-		antiRollbarSpeedMin 	= 10; 	/// the roll bar force gets from zero to full in range of min and max speed
-		antiRollbarSpeedMax		= 60;  	/// this simulates losing grip at high speed turns
+		antiRollbarForceLimit	= 0; 	/// highest possible force of ARB
+		antiRollbarSpeedMin 	= 0; 	/// the roll bar force gets from zero to full in range of min and max speed
+		antiRollbarSpeedMax		= 0;  	/// this simulates losing grip at high speed turns
 
 		class complexGearbox
 		{	
@@ -212,7 +212,7 @@
 				// that these are often expressed by manufacturers as braking horsepower or in "pounds inches". The values required here are in "Newton metres".
 				// <Type>: float
 				// <Default>: 2500
-				maxBrakeTorque = 8000;
+				maxBrakeTorque = 10000;
 				
 				// <Description>: This is the same as the max brake torque except for the handbrake rather than the brake. Typically, for a 4-wheeled car, 
 				// the handbrake is stronger than the brake and is only applied to the rear wheels. A value of 4000 for the rear wheels is a good starting point, 
@@ -255,13 +255,13 @@
 				// <Description>: This is the mass in kg that is supported by the suspension spring.
 				// <Type>: float
 				// <Default>: vehicleMass/numberOfWheels
-				sprungMass = 350.0;
+				sprungMass = 800.0;
 				
 				// <Description>: This is the strength of the suspension spring in Newtons per metre.
 				//   springStrength = naturalFrequency * naturalFrequency * sprungMass
 				// <Type>: float
 				// <Default>: sprungMass*5,0*5,0
-				springStrength = 22600;
+				springStrength = 90600;
 
 				// <Description>: This describes the rate at which the spring dissipates the energy stored in the spring.
 				// Basic equiation for this is
@@ -269,7 +269,7 @@
 				// where dampingRatio = 1 mean critical damping (critically damped pendulum should get back to start point in every swing)
 				// <Type>: float
 				// <Default>: 0,4*2*sqrt(springStrength*sprungMass)
-				springDamperRate = 8680;
+				springDamperRate = 18680;
 				
 				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				// Tire parameters
@@ -308,11 +308,11 @@
 				boundary = "wheel_2_1_bound";
 				suspForceAppPointOffset = "wheel_2_1_axis";
 				tireForceAppPointOffset = "wheel_2_1_axis";
-				maxHandBrakeTorque = 3000;
+				maxHandBrakeTorque = 10000;
 				latStiffY = 180;	
-				sprungMass = 190.0;
-				springStrength = 4750;
-				springDamperRate = 1760;				
+				sprungMass =  800.0;;
+				springStrength = 90600;
+				springDamperRate =18680;			
 			};
 			class RF : LF
 			{
@@ -332,11 +332,7 @@
 				boundary = "wheel_2_2_bound";
 				suspForceAppPointOffset = "wheel_2_2_axis";
 				tireForceAppPointOffset = "wheel_2_2_axis";
-				maxHandBrakeTorque = 3000;
-				latStiffY = 180;				
-				sprungMass = 190.0;
-				springStrength = 4750;
-				springDamperRate = 1760;					
+					
 			};
 			class RRtwo : RF
 			{
@@ -346,11 +342,7 @@
 				boundary = "wheel_3_2_bound";
 				suspForceAppPointOffset = "wheel_3_2_axis";
 				tireForceAppPointOffset = "wheel_3_2_axis";
-				maxHandBrakeTorque = 3000;
-				latStiffY = 180;				
-				sprungMass = 190.0;
-				springStrength = 4750;
-				springDamperRate = 1760;					
+			
 			};
 			class LRtwo : RF
 			{
@@ -360,10 +352,6 @@
 				boundary = "wheel_3_1_bound";
 				suspForceAppPointOffset = "wheel_3_1_axis";
 				tireForceAppPointOffset = "wheel_3_1_axis";
-				maxHandBrakeTorque = 3000;
-				latStiffY = 180;				
-				sprungMass = 190.0;
-				springStrength = 4750;
-				springDamperRate = 1760;					
+				
 			};
 		};
