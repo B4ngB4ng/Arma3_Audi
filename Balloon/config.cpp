@@ -40,19 +40,19 @@ class CfgVehicles
 		armor = 30;				/// just some protection against missiles, collisions and explosions
 		altFullForce = 4000;	/// in what height do the engines still have full thrust
 		altNoForce = 6000;		/// thrust of the engines interpolates to zero between altFullForce and altNoForce
-		maxSpeed = 300;			/// what is the maximum speed of the vehicle
-		maxFordingDepth = 0.55;	/// how deep could the vehicle be in water without getting some damage
-		mainBladeRadius = 7.0;	/// describes the radius of main rotor - used for collision detection
+		maxSpeed = 50;			/// what is the maximum speed of the vehicle
+		maxFordingDepth = 4;	/// how deep could the vehicle be in water without getting some damage
+		mainBladeRadius = 0;	/// describes the radius of main rotor - used for collision detection
 		//multiplier of lift force
 		liftForceCoef = 1.1;	
 		//multiplier of body friction
-		bodyFrictionCoef = 0.7;	
+		bodyFrictionCoef = 0;	
 		//multiplier of bank force
-		cyclicAsideForceCoef = 1.0;
+		cyclicAsideForceCoef = 0;
 		//multiplier of dive force
 		cyclicForwardForceCoef = 1.0;
 		//multiplier of back rotor force
-		backRotorForceCoef = 1.0;	
+		backRotorForceCoef = 0;	
 		
 		accuracy = 0.5;											/// how hard it is to distinguish the type of the vehicle (bigger number means harder)
 		displayName = "Balloon"; 								/// how is the heli displayed in editor
