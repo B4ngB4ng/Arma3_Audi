@@ -310,9 +310,12 @@
 				tireForceAppPointOffset = "wheel_2_1_axis";
 				maxHandBrakeTorque = 10000;
 				latStiffY = 180;	
-				sprungMass =  800.0;;
-				springStrength = 90600;
-				springDamperRate =18680;			
+				sprungMass = 1400 
+				springStrength = 37500 
+				springDamperRate = 6000
+
+				
+		
 			};
 			class RF : LF
 			{

@@ -3,7 +3,7 @@
 		brakeIdleSpeed = 1.78;
 		maxSpeed = 330;
 		fuelCapacity = 60;
-		wheelCircumference = 2.277;
+		wheelCircumference = 1,3842;
 		antiRollbarForceCoef = 0;
 		antiRollbarForceLimit = 0;
 		antiRollbarSpeedMin = 0;
@@ -58,7 +58,7 @@
 				boundary = "wheel_1_1_bound";
 				width = "0.2";
 				mass = 20;
-				MOI = 5.3;
+				MOI = 1;
 				dampingRate = 0.5;
 				maxBrakeTorque = 5000;
 				maxHandBrakeTorque = 0;
@@ -66,10 +66,15 @@
 				suspForceAppPointOffset = "wheel_1_1_axis";
 				tireForceAppPointOffset = "wheel_1_1_axis";
 				maxCompression = 0.1;
-				mMaxDroop = 0.05;
-				sprungMass = 400.5;
-				springStrength = 40250;
-				springDamperRate = 7725;
+				mMaxDroop = 0.15;
+				
+sprungMass = 273 
+springStrength = 6813 
+springDamperRate = 1091 
+
+
+
+				
 				longitudinalStiffnessPerUnitGravity = 100000;
 				latStiffX = 25;
 				latStiffY = 18000;
