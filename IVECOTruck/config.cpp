@@ -37,7 +37,7 @@ class CfgVehicles
 		
 		displayName = "IVECO Truck"; /// displayed in Editor
 		
-		hiddenSelections[] = {"camo1"}; ///we want to allow changing of colours
+		//hiddenSelections[] = {"camo1"}; ///we want to allow changing of colours
 		
 		terrainCoef 	= 6.5; 	/// different surface affects this car more, stick to tarmac
 		turnCoef 		= 2.5; 	/// should match the wheel turn radius
@@ -74,6 +74,9 @@ class CfgVehicles
 
 			class HitRFWheel:HitRFWheel	{armor=0.125; passThrough=0;};
 			class HitRF2Wheel:HitRF2Wheel{armor=0.125; passThrough=0;}; 
+			
+			class Hit2RFWheel:HitRFWheel	{armor=0.125; passThrough=0;};
+			class Hit2RF2Wheel:HitRF2Wheel{armor=0.125; passThrough=0;}; 
 
 			class HitFuel 			{armor=0.50; material=-1; name="fueltank"; visual=""; passThrough=0.2;}; /// correct points for fuel tank, some of the damage is aFRLied to the whole
 			class HitEngine 		{armor=0.50; material=-1; name="engine"; visual=""; passThrough=0.2;};
@@ -203,6 +206,6 @@ class CfgVehicles
 		side	= 3; 			/// civilian car should be on civilian side
 		faction	= CIV_F;		/// and with civilian faction
 		
-		hiddenSelectionsTextures[] = {"\A3\Weapons_F\Data\placeholder_co.paa"};	 /// we could use any texture to cover the car
+		//hiddenSelectionsTextures[] = {"\A3\Weapons_F\Data\placeholder_co.paa"};	 /// we could use any texture to cover the car
 	};	
 };
