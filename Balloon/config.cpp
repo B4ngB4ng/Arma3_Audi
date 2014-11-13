@@ -10,8 +10,17 @@ class CfgPatches
 	};
 };
 
+class CfgModels
+{
+	class default {};
+	class Air: default {};
+	class Helicopter: Air {};
+	class UH60: Helicopter{};
+	class Balloon: UH60 {};
+};
 
 class WeaponCloudsMGun;
+
 
 class CfgVehicles
 {
@@ -30,6 +39,8 @@ class CfgVehicles
 		class Eventhandlers;
 		class Viewoptics;
 		class ViewPilot;
+		class RotorLibHelicopterProperties;
+		class CargoTurret;
 		class Reflectors
 		{
 			class Right;
@@ -54,7 +65,7 @@ class CfgVehicles
 		//multiplier of back rotor force
 		backRotorForceCoef = 0;	
 		
-		accuracy = 0.5;											/// how hard it is to distinguish the type of the vehicle (bigger number means harder)
+		accuracy = 0.5;													/// how hard it is to distinguish the type of the vehicle (bigger number means harder)
 		displayName = "Balloon"; 								/// how is the heli displayed in editor
 		model = "\Arma3_Audi\Balloon\Balloon.p3d"; 	/// path to model of the heli
 		driveOnComponent[] = {"Wheels"};
@@ -62,14 +73,16 @@ class CfgVehicles
 		icon = "\A3\Air_F\Heli_Light_02\Data\UI\Map_Heli_Light_02_CA.paa";	/// icon in map/editor
 		picture = "\A3\Air_F\Heli_Light_02\Data\UI\Heli_Light_02_CA.paa";	/// small picture in command menu
 
-		driverAction = pilot_Heli_Light_02;				/// what is the standard pose for the pilot, defined as animation state
-		driverInAction = pilot_Heli_Light_02;			/// what is the standard pose for the pilot, defined as animation state
+		//driverAction = pilot_Heli_Light_02;				/// what is the standard pose for the pilot, defined as animation state
+		//driverInAction = pilot_Heli_Light_02;			/// what is the standard pose for the pilot, defined as animation state
+		driverAction = saluteOff;				/// what is the standard pose for the pilot, defined as animation state
+		driverInAction = saluteOff;			/// what is the standard pose for the pilot, defined as animation state
 		precisegetinout = 1;							/// describes what style of get in is used (0 - non-precise; 1 - precise on proxy; 2 - precise on model center)
 		GetInAction = pilot_Heli_Light_02_Enter;		/// what action uses the pilot to get in the heli, it uses "switchAction" script command on the proxy
 		GetOutAction = pilot_Heli_Light_02_Exit;		/// what action uses the pilot to get out of heli
 		cargoGetInAction[] = {"GetInHelicopterCargo"};	/// actions for the cargo, the last one in array is used for the rest
 		cargoGetOutAction[] = {"GetOutHelicopterCargo"};/// that means every cargo position could use different action to get in
-		transportSoldier = 8;							/// how many cargo positions are available
+		transportSoldier = 0;							/// how many cargo positions are available
 		cargoAction[] = 								/// the same array as getIn/getOut actions for actions to switch to for cargo while inside the heli
 						{
 							passenger_apc_narrow_generic03,
@@ -97,7 +110,7 @@ class CfgVehicles
 		};		
 		maximumLoad = 2000;			/// capacity of cargo inventory for backpacks and various other items
 		cargoCanEject = 1;			/// cargo should be able to grab a chute and drop out of the vehicle
-		driverCanEject = 0;			/// pilot shouldn't be able to do so as he doesn't have eject seat
+		driverCanEject = 1;			/// pilot shouldn't be able to do so as he doesn't have eject seat
 
 		class Exhausts								/// describes the particle effects fro exhausts
 		{
@@ -290,7 +303,10 @@ class CfgVehicles
 		magazines[] = {};			/// no magazines
 			availableForSupportTypes[] = {"Drop", "Transport"};	/// use any number of expressions from "Artillery", "CAS_Heli", "CAS_Bombing", "Drop", "Transport"
 	
-		};	
+			
 		cost = 900000;	/// we need some high cost for such vehicles to be prioritized by AA defences
 	};
+	
 };
+
+
